@@ -38,6 +38,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'dukkan-detay',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../dukkan-detay/dukkan-detay.module').then(m => m.DukkanDetayPageModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

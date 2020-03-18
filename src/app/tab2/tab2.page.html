@@ -1,17 +1,25 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-app>
+  <ion-header translucent>
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title>Sepetim</ion-title>
     </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
-</ion-content>
+  </ion-header>,
+  <ion-content fullscreen>
+    <ion-list> 
+      <ion-item>
+        <ion-label>Halley (8)</ion-label>
+        <ion-badge color="medium" slot="end">100 TL</ion-badge>
+      </ion-item>
+      <ion-item>
+        <ion-label>Biskolata (2)</ion-label>
+        <ion-badge color="medium" slot="end">24 TL</ion-badge>
+      </ion-item>
+     
+      <ion-item>
+        <ion-label style="font-size:18px">Toplam</ion-label>
+        <ion-badge color="dark" slot="end" style="font-size:18px">124 TL</ion-badge>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="full" color="secondary">Sipariş Ver</ion-button>
+  </ion-content>
+</ion-app>
