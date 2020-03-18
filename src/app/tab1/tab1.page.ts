@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-tab1',
@@ -8,8 +10,17 @@ import { Router } from '@angular/router';
 })
 export class Tab1Page {
   adresFiltresi : boolean;
-  constructor(private route:Router) {  
+  tumDukkanlar : object;
+
+  constructor(private route:Router,public http: HttpClient) {  
+    this.http.get ( 'https://localhost:44383/api/app/get_all_dukkanlar')
+  .subscribe (data => {  
+  this.tumDukkanlar = data;  
+  })  
   }
+
+  
+
   goDukkanDetay (){
     this.route.navigateByUrl("/tabs/dukkan-detay");
   }

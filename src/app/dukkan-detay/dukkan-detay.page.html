@@ -1,8 +1,12 @@
 <ion-app>
   <ion-header translucent>
-    <ion-toolbar>
-      <ion-title style="text-align: center;">İdris Bakkal</ion-title>
-    </ion-toolbar>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="tabs"></ion-back-button>
+        </ion-buttons>
+        <ion-title >İdris Bakkal</ion-title>
+
+      </ion-toolbar>
   </ion-header>
   <ion-content fullscreen>
     <ion-list>
@@ -28,28 +32,6 @@
         <ion-badge slot="end">15 TL</ion-badge>
       </ion-item>
     </ion-list>
-    <ion-list>
-      <ion-list-header style="font-size: 20px;">Badges</ion-list-header>
-      <ion-item>
-        <ion-icon name="add-circle" (click)="urunuSepeteEkle()" style="padding-right:10px"></ion-icon>
-        <ion-label>Followers</ion-label>
-        <ion-badge slot="end">15 TL</ion-badge>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="add-circle" (click)="urunuSepeteEkle()" style="padding-right:10px"></ion-icon>
-        <ion-label>Followers</ion-label>
-        <ion-badge slot="end">15 TL</ion-badge>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="add-circle" (click)="urunuSepeteEkle()" style="padding-right:10px"></ion-icon>
-        <ion-label>Followers</ion-label>
-        <ion-badge slot="end">15 TL</ion-badge>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="add-circle" (click)="urunuSepeteEkle()" style="padding-right:10px"></ion-icon>
-        <ion-label>Followers</ion-label>
-        <ion-badge slot="end">15 TL</ion-badge>
-      </ion-item>
-    </ion-list>
+    
   </ion-content>
 </ion-app>
