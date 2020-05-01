@@ -12,7 +12,7 @@
       <ion-avatar slot="start">
         <img src="https://pngimage.net/wp-content/uploads/2018/05/avatar-vector-png-3.png">
       </ion-avatar>
-      <ion-label>Atakan Gemici </ion-label>
+      <ion-label>{{user?.ad}} {{user?.soyad}}</ion-label>
     </ion-item>
     <ion-item>    
       <ion-label>
@@ -25,7 +25,7 @@
             </ion-col>
             <ion-col>
               <div>
-                <h3>Lorem ipsum</h3>
+                <h3>{{user?.email}}</h3>
               </div>
             </ion-col>
           </ion-row>
@@ -44,7 +44,7 @@
             </ion-col>
             <ion-col>
               <div>
-                <h3>Lorem ipsum</h3>
+                <h3>{{user?.adres}}</h3>
               </div>
             </ion-col>
             <ion-col>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service'
 
 @Component({
   selector: 'app-tabs',
@@ -6,7 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
+  public user : object;
 
-  constructor() {}
-
+  constructor(public authService: AuthService,public route:Router) {
+    this.user = JSON.parse(localStorage.getItem('user'));    
+   
+  }
+  
+  goLogin(){
+    this.route.navigateByUrl("/login");
+  }
 }

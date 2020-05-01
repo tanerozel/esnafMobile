@@ -13,13 +13,11 @@ export class Tab1Page {
   tumDukkanlar : object;
 
   constructor(private route:Router,public http: HttpClient) {  
-    this.http.get ( 'https://localhost:44383/api/app/get_all_dukkanlar')
+    this.http.get ( 'https://localhost:44383/api/app/get_all_shops')
   .subscribe (data => {  
   this.tumDukkanlar = data;  
   })  
   }
-
-  
 
   goDukkanDetay (){
     this.route.navigateByUrl("/tabs/dukkan-detay");

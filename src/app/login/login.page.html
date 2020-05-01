@@ -1,0 +1,51 @@
+<ion-app>
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title *ngIf='!registerContent' style="text-align: right;font-size:13px">Hesabın yok mu?<b (click)="registerPage()"> Kaydol</b></ion-title>
+      <ion-title *ngIf='registerContent' style="text-align: right;font-size:13px">Hesabın zaten var mı?<b (click)="loginPage()"> Giriş Yap</b></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content fullscreen hide-header *ngIf='!registerContent' padding>
+    
+    <h2 style="font-family: cursive;text-align: center;margin-top: 20%;">Esnafım</h2>
+    <form #userForm="ngForm">
+
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input [ngModel]="email" name="email"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label position="stacked">Şifre</ion-label>
+      <ion-input [ngModel]="password" type="password" name="password"></ion-input>
+    </ion-item> 
+    <ion-button expand="full" color="secondary" (click)="authService.Login(userForm)" style="margin-top:5%">Giriş Yap</ion-button>
+    </form>
+</ion-content>
+
+<ion-content fullscreen hide-header *ngIf='registerContent' padding>
+  <h2 style="font-family: cursive;text-align: center;margin-top: 20%;">Esnafım</h2>
+  <form #userForm="ngForm">
+  <ion-item>
+    <ion-label position="stacked">Ad</ion-label>
+    <ion-input [ngModel]="name" name="name"></ion-input>
+  </ion-item> 
+  <ion-item>
+    <ion-label position="stacked">Soyad</ion-label>
+    <ion-input [ngModel]="surename" name="surename"></ion-input>
+  </ion-item> 
+  <ion-item>
+    <ion-label position="stacked">Email</ion-label>
+    <ion-input [ngModel]="email" name="email"></ion-input>
+  </ion-item> 
+  <ion-item>
+    <ion-label position="stacked">Şifre</ion-label>
+    <ion-input [ngModel]="password" type="password" name="password"></ion-input>
+  </ion-item> 
+  <ion-button expand="full" color="secondary" (click)="register(userForm)" style="margin-top:5%">Kayıt Ol</ion-button>
+</form>
+</ion-content>
+</ion-app>
