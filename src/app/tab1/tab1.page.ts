@@ -19,8 +19,9 @@ export class Tab1Page {
   })  
   }
 
-  goDukkanDetay (){
-    this.route.navigateByUrl("/tabs/dukkan-detay");
+  goDukkanDetay (shopId){
+    this.route.navigateByUrl("/tabs/dukkan-detay/" + shopId);
+
   }
   adresSec(){
     if(this.adresFiltresi == true)

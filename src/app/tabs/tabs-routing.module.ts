@@ -38,7 +38,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'dukkan-detay',
+        path: 'dukkan-detay/:id',
         children: [
           {
             path: '',
