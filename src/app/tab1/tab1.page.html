@@ -1,14 +1,14 @@
 <ion-app>
   <ion-header translucent>
     <ion-toolbar>
-      <ion-title>Dükkanlar</ion-title>
+      <ion-title style="color:white;font-family: cursive;font-size: 21px;">Esnafım</ion-title>
       <ion-buttons slot="primary">
-        <ion-button (click)="adresSec()">Adres Seç</ion-button>
+        <ion-button style="color:white;font-family: cursive;font-size: 13px;" (click)="adresSec()">Adres Seç</ion-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
   <ion-content fullscreen>
-    <ion-item style="margin-top: 2%;" *ngIf="adresFiltresi">
+    <ion-item style="margin-top: 5%;" *ngIf="adresFiltresi">
       <ion-label>İl</ion-label>
       <ion-select ok-text="Tamam" cancel-text="Kapat">
         <ion-select-option value="dos">İstanbul</ion-select-option>       
@@ -26,16 +26,22 @@
         <ion-select-option value="dos">Şehremini</ion-select-option>       
       </ion-select>
     </ion-item>
-    <ion-list>
-      <ion-item color="primary" *ngIf="adresFiltresi">
-        <ion-label style="text-align: center;">Dükkanlar</ion-label>
+    <ion-list *ngFor="let kategori of tumDukkanlar">
+      <ion-list-header style="font-size: 20px;margin-top: 10px;" text-center>
+        {{kategori.kategori_adi}}
+      </ion-list-header>
+
+      <ion-item *ngFor="let dukkan of kategori.dukkanlar">
+        <ion-avatar slot="start">
+          <img src="https://cdn1.iconfinder.com/data/icons/ecommerce-free/96/Shop-512.png">
+        </ion-avatar>
+        <ion-label (click)="goDukkanDetay();">
+          <h2>{{dukkan.dukkan_adi}}</h2>
+        </ion-label>
       </ion-item>
-      <ion-item (click)="goDukkanDetay();" *ngFor="let dukkan of tumDukkanlar"> 
-        <ion-label>{{dukkan.dukkanAdi}}</ion-label>
-        <ion-icon name="chevron-forward"></ion-icon>      
-      </ion-item>
-    
-      
+   
     </ion-list>
   </ion-content>
+
+
 </ion-app>

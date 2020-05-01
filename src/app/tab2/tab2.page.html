@@ -1,25 +1,39 @@
 <ion-app>
   <ion-header translucent>
     <ion-toolbar>
-      <ion-title style="text-align: center;">Sepetim</ion-title>
+      <ion-title style="color:white;font-family: cursive;font-size: 21px;">Sepetim</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content fullscreen>
-    <ion-list> 
+    <ion-list style="margin-top: 10px;">  
       <ion-item>
-        <ion-label>Halley (8)</ion-label>
-        <ion-badge  slot="end">100 ₺</ion-badge>
+        <ion-label>(2) Halley</ion-label>
+        <ion-note slot="end" color="primary">124 Tl</ion-note>
       </ion-item>
       <ion-item>
-        <ion-label>Biskolata (2)</ion-label>
-        <ion-badge  slot="end">24 ₺</ion-badge>
-      </ion-item>
-     
-      <ion-item>
-        <ion-label><strong>Toplam Tutar</strong></ion-label>
-        <ion-badge color="success" slot="end" >124 ₺</ion-badge>
+        <ion-label>(2) Halley</ion-label>
+        <ion-note slot="end" color="primary">124 Tl</ion-note>
       </ion-item>
     </ion-list>
-    <ion-button expand="full" color="light">Sipariş Ver</ion-button>
+    
+
   </ion-content>
+  <ion-footer>
+    <ion-button expand="full" color="tertiary" style="height: 54px;">
+          
+      <ion-grid>
+        <ion-row>
+          <ion-col style="border-right: 2px solid white;">
+            <div>Toplam : 124 TL</div>
+          </ion-col>
+          <ion-col>
+            <div>
+             Sepeti Onayla
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-button>
+   
+  </ion-footer>
 </ion-app>

@@ -1,13 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title style="text-align: center;">
+    <ion-title style="color:white;font-family: cursive;font-size: 21px;">
       Profil
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list>
+  <ion-list style="margin-top: 10px;">
     <ion-item>
       <ion-avatar slot="start">
         <img src="https://pngimage.net/wp-content/uploads/2018/05/avatar-vector-png-3.png">
@@ -53,31 +53,27 @@
             </ion-col>
           </ion-row>
         </ion-grid>
-       
+        
       </ion-label>
     </ion-item>
-    <ion-header [translucent]="true">
-      <ion-toolbar>
-        <ion-title style="text-align: center;">
-         Siparişlerim
-        </ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-item>
-      <ion-label>(3) Kilo Patates</ion-label>
-      <ion-badge slot="end">22 ₺</ion-badge>
-    </ion-item>
-    <ion-item>
-      <ion-label>(4) Adet 2,5 L Pepsi</ion-label>
-      <ion-badge slot="end">32 ₺</ion-badge>
-    </ion-item>
-    <ion-item>
-      <ion-label>(5) Kilo Un</ion-label>
-      <ion-badge slot="end">18,85 ₺</ion-badge>
-    </ion-item>
-    <ion-item>
-      <ion-label><strong>Toplam Tutar</strong> </ion-label>
-      <ion-badge color="success" slot="end" >72,85 ₺</ion-badge>
+    <ion-item>    
+      <ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="1">
+              <div>
+                <ion-icon name="call"></ion-icon>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                <h3>{{user?.telefon}}</h3>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+       
+      </ion-label>
     </ion-item>
   </ion-list>
   
