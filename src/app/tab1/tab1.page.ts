@@ -21,7 +21,6 @@ export class Tab1Page {
 
   goDukkanDetay (shop,categoryName){
     localStorage.setItem('categoryName', categoryName);
-
     this.route.navigateByUrl("/tabs/dukkan-detay/" + shop["id"]);
 
   }

@@ -15,14 +15,11 @@ export class Tab2Page {
   orders : object;
   totalPrice : number;
   shopId : number;
+  orderCheck : boolean;
 
   constructor(public toastController: ToastController,public route: ActivatedRoute,public router:Router,public http: HttpClient,public alertController: AlertController) { 
   }
 
-
-
-  ngOnit(){
-  }
 
   ionViewWillEnter(){
     this.user = JSON.parse(localStorage.getItem('user'));    
@@ -31,6 +28,14 @@ export class Tab2Page {
     this.http.get( 'https://localhost:44383/api/app/get_order/' + parseInt(this.user['id']) ).toPromise()
       .then(data =>{         
         this.orders = data;
+
+        if(this.orders[0]){
+          this.orderCheck = true;
+        }
+        else{
+          this.orderCheck = false;
+
+        }
 
         for (let i in this.orders) {
           this.totalPrice = this.totalPrice + this.orders[i]['urun_fiyat'];
@@ -56,6 +61,10 @@ export class Tab2Page {
     this.http.post<any>('https://localhost:44383/api/app/order_approved', product).subscribe(data => {
       toast.present();
     })
+  }
+
+  goHome(){
+    this.router.navigateByUrl("/tabs/tab1");
   }
 
 }

@@ -1,21 +1,60 @@
 <ion-app>
   <ion-header translucent>
     <ion-toolbar>
-      <ion-title style="font-family: cursive;font-size: 21px;text-align: center;">Sepetim</ion-title>
+      <ion-title style="font-family: cursive;font-size: 21px;">Sepetim</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content fullscreen>
-    <ion-list style="margin-top: 10px;" *ngFor="let order of orders">
-      <ion-item>      
-        <ion-label> {{order?.urun_adi}}</ion-label>
-        <ion-note slot="end" color="warning">{{order?.urun_fiyat}} TL</ion-note>
-      </ion-item>     
+    <ion-item style="padding-top: 30px;" *ngIf = "orderCheck">
+
+      <ion-grid >
+  
+        <ion-row>
+          <ion-col>
+            <div>
+              <ion-avatar slot="start" style="height: 60px;width: 60px;margin-left: 10px;margin-top: 10px;">
+                <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/shopping_basket_full.png">
+                  
+              </ion-avatar>
+            </div>
+          </ion-col>
+          <ion-col style="text-align: center;">
+            <div>
+              <ion-label style="padding-top: 31px;">
+                <h2>Atakan Market</h2>
+              </ion-label>
+            </div>
+          </ion-col>
+          <ion-col style="text-align: right;">
+            <div>
+              <ion-icon name="chevron-forward-outline" style="text-align: right;padding-top: 31px;font-size: 20px;"></ion-icon>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  
+    </ion-item>
+
+    <ion-list style="margin-top: 10px;" >
+
+      <ion-item *ngFor="let order of orders">
+        <ion-icon name="remove-circle" (click)="urunuSepeteEkle(urun)" style="padding-right:10px;color: orange;"></ion-icon>
+        <ion-label>{{order?.urun_adi}}</ion-label>
+        <ion-badge color="secondary" slot="end">{{order?.urun_fiyat}} ₺</ion-badge>
+      </ion-item>
+     
     </ion-list>
-    
+   
+    <div style="text-align: center;"  *ngIf = "!orderCheck">
+    <img src="..\assets\basket.png" style="height: 200px;    margin-top: 120px;">  
+    <p>Sepetiniz de ürün bulunmamaktadır.</p>
+    <ion-button expand="small" color="secondary" (click)="goHome();">Alışverişe devam et</ion-button>
+
+    </div>
 
   </ion-content>
-  <ion-footer>
-    <ion-button expand="full" color="success" style="height: 54px;" (click)="orderApproved(orders)">         
+  <ion-footer *ngIf = "orderCheck">
+    <ion-button expand="full" color="primary" style="height: 54px;" (click)="orderApproved(orders)">         
       <ion-grid>
         <ion-row>
           <ion-col style="border-right: 2px solid white;">
@@ -29,6 +68,5 @@
         </ion-row>
       </ion-grid>
     </ion-button>
-   
   </ion-footer>
 </ion-app>

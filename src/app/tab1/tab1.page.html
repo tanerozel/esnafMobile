@@ -26,23 +26,23 @@
         <ion-select-option value="dos">Şehremini</ion-select-option>       
       </ion-select>
     </ion-item>
+    <img src="..\assets\banner.png">  
+
     <ion-list *ngFor="let kategori of tumDukkanlar">
       <ion-list-header style="font-size: 20px;margin-top: 10px;" text-center>
         {{kategori.kategori_adi}}
       </ion-list-header>
-
       <ion-item *ngFor="let dukkan of kategori.dukkanlar">
         <ion-avatar slot="start">
           <img src="https://cdn1.iconfinder.com/data/icons/ecommerce-free/96/Shop-512.png" *ngIf="kategori.kategori_adi == 'Market'">
           <img src="https://pngimage.net/wp-content/uploads/2018/05/bread-icon-png-1.png" *ngIf="kategori.kategori_adi == 'Fırın'">
           <img src="https://i.pinimg.com/originals/9a/68/c9/9a68c93b7acc0a59649afab6ce503d47.jpg" *ngIf="kategori.kategori_adi == 'Manav'">
           <img src="https://cdn3.iconfinder.com/data/icons/mixed-bag-1/150/8_shop-512.png" *ngIf="kategori.kategori_adi == 'Bakkal'">
-
         </ion-avatar>
         <ion-grid>
-          <ion-row>
+          <ion-row (click)="goDukkanDetay(dukkan,kategori.kategori_adi);">
             <ion-col>
-              <div> <ion-label (click)="goDukkanDetay(dukkan,kategori.kategori_adi);">
+              <div> <ion-label>
                 <h2>{{dukkan.dukkan_adi}}</h2>
               </ion-label></div>
             </ion-col>
@@ -51,11 +51,7 @@
             </ion-col>
           </ion-row>
         </ion-grid>
-       
-      </ion-item>
-   
+      </ion-item> 
     </ion-list>
   </ion-content>
-
-
 </ion-app>
