@@ -14,6 +14,6 @@ export class Tab3Page {
 
 }
 ngOnit(){
-  alert('ati')
+
 }
 }

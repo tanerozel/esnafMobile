@@ -4,17 +4,17 @@
         <ion-buttons slot="start">
           <ion-back-button defaultHref="tabs"></ion-back-button>
         </ion-buttons>
-        <ion-title style="color:white;font-family: cursive;font-size: 21px;">Atakan Market</ion-title>
+        <ion-title style="font-family: cursive;font-size: 21px;">{{shop?.dukkan_adi}}</ion-title>
 
       </ion-toolbar>
   </ion-header>
   <ion-content fullscreen>
-    <ion-list style="margin-top: 10px;" *ngFor="let products of shopProducts">
-      <ion-list-header style="font-size: 20px;">{{products.kategori_adi}}</ion-list-header>
-      <ion-item *ngFor="let product of products.urunler">
-        <ion-icon name="add-circle" (click)="urunuSepeteEkle()" style="padding-right:10px"></ion-icon>
-        <ion-label>{{product?.urun_adi}}</ion-label>
-        <ion-badge slot="end">{{product.fiyat}} TL</ion-badge>
+    <ion-list style="margin-top: 10px;" *ngFor="let kategori of shop?.kategori">
+      <ion-list-header style="font-size: 20px;">{{kategori?.kategori_adi}}</ion-list-header>
+      <ion-item *ngFor="let urun of kategori.urun">
+        <ion-icon name="add-circle" (click)="urunuSepeteEkle(urun)" style="padding-right:10px"></ion-icon>
+        <ion-label>{{urun?.urun_adi}}</ion-label>
+        <ion-badge color="warning" style="color:white" slot="end">{{urun?.fiyat}} TL</ion-badge>
       </ion-item>
     </ion-list>
     

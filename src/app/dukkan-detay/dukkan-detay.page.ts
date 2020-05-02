@@ -12,24 +12,38 @@ import { ToastController } from '@ionic/angular';
 })
 export class DukkanDetayPage {
   shopId: string;
-  shopProducts : object;
+  shop: object;
   user : object;
-  
+
   constructor(public toastController: ToastController,route: ActivatedRoute,private router:Router,public http: HttpClient,private alertController: AlertController) { 
     this.shopId = route.snapshot.params['id']; 
   
-    this.http.get( 'https://localhost:44383/api/app/get_products/' + parseInt(this.shopId) ).toPromise()
+    this.http.get( 'https://localhost:44383/api/app/get_shop/' + parseInt(this.shopId) ).toPromise()
       .then(data =>{         
-        this.shopProducts = data;
+        this.shop = data;
      })   
 
 
   }
-  async urunuSepeteEkle() {
+  async urunuSepeteEkle(orderProduct) {
+    let product = {};
+
+    this.user = JSON.parse(localStorage.getItem('user'));    
+    product["urunId"] = orderProduct.id;
+    product["dukkanId"] = this.shopId;
+    product["musteriId"] = this.user['id'];
+    product["urunAdi"] = orderProduct.urun_adi
+    product["urunFiyat"] = orderProduct.fiyat;
+
     const toast = await this.toastController.create({
       message: 'Ürün sepetinize eklendi.',
       duration: 2000
     });
-    toast.present();
+    
+    this.http.post<any>('https://localhost:44383/api/app/add_order_product', product).subscribe(data => {
+      toast.present();
+
+    })
+   
   }
 }
