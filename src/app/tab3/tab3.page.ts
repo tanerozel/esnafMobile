@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service'
+import {ActivatedRoute} from '@angular/router';
+import { Router } from '@angular/router';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { AlertController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-tab3',
@@ -8,12 +13,33 @@ import { AuthService } from '../auth.service'
 })
 export class Tab3Page {
   public user : object;
+  orderApproved : object;
+  orders: object;
+  orderDetailCheck : boolean;
 
-  constructor(public authService: AuthService) {
+  constructor(public toastController: ToastController,public route: ActivatedRoute,public router:Router,public http: HttpClient,public alertController: AlertController) { 
     this.user = JSON.parse(localStorage.getItem('user'));    
 
 }
 ngOnit(){
 
 }
+
+ionViewWillEnter(){
+  this.user = JSON.parse(localStorage.getItem('user'));    
+
+  this.http.get( 'https://localhost:44383/api/app/get_orders_approved/' + parseInt(this.user['id']) ).toPromise()
+    .then(data =>{         
+      this.orderApproved = data;
+
+   })   
+
+}
+
+async orderDetail(order) {
+
+  this.router.navigateByUrl("/tabs/siparis-detay/" + order["id"]); 
+
+}
+
 }

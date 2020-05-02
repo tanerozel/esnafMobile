@@ -48,6 +48,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'siparis-detay/:id',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../siparis-detay/siparis-detay.module').then(m => m.SiparisDetayPageModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

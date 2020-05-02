@@ -55,7 +55,6 @@ export class Tab2Page {
     
     this.http.post<any>('https://localhost:44383/api/app/order_approved', product).subscribe(data => {
       toast.present();
-
     })
   }
 

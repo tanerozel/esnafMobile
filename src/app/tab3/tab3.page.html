@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content fullscreen>
   <ion-list style="margin-top: 10px;">
     <ion-item>
       <ion-avatar slot="start">
@@ -76,5 +76,18 @@
       </ion-label>
     </ion-item>
   </ion-list>
-  
+  <ion-card style="text-align: center;">
+    <img style="text-align: center;margin: auto;height: 120px;padding-top: 10px;" src="https://lh3.googleusercontent.com/proxy/ISoZeDLN8ypAEe_6U06mSJJsWLe5upd8UbdDWwRZWxlfAsABXxVUAYGzMuQCRbL2-Q4wtOklAd5nHMAwHoTzE2fpvahLmidbCaM3rb52ql7xDTiymjIC6_LKf1apC43kCYWds17kDTcuqSKn9Td8toRB4ZIq_L6j" />
+    <ion-card-header>
+      <ion-card-title>Siparişlerim</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list *ngFor="let order of orderApproved">  
+        <ion-item (click)="orderDetail(order);">
+          <ion-label>{{order?.dukkan_adi}}</ion-label>
+          <ion-badge color="secondary" slot="end">{{order?.siparis_tutari}} TL</ion-badge>
+        </ion-item>              
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

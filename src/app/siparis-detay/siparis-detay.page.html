@@ -1,0 +1,25 @@
+<ion-app>
+  <ion-header translucent>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="tabs"></ion-back-button>
+        </ion-buttons>
+        <ion-title style="font-family: cursive;font-size: 21px;">{{shopName}}</ion-title>
+
+      </ion-toolbar>
+  </ion-header>
+  <ion-content fullscreen>
+    <ion-list *ngFor="let order of orders">
+      <ion-item>
+        <ion-label>{{order.urun_adi}}</ion-label>
+        <ion-badge color="secondary" slot="end">{{order.urun_fiyat}} TL</ion-badge>
+      </ion-item>      
+    </ion-list>  
+  </ion-content>
+  <ion-footer>
+    <ion-button expand="full" color="success" style="height: 54px;">
+      Toplam : {{totalPrice}} TL         
+    </ion-button>
+   
+  </ion-footer>
+</ion-app>
