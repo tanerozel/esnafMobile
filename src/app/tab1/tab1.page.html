@@ -3,7 +3,7 @@
     <ion-toolbar>
       <ion-title style="font-family: cursive;font-size: 21px;">Esnafım</ion-title>
       <ion-buttons slot="primary">
-        <ion-button style="font-family: cursive;font-size: 13px;" (click)="adresSec()">Adres Seç</ion-button>
+        <ion-button style="font-family: cursive;font-size: 13px;text-align: center;" (click)="adresSec()">Adres Seç</ion-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
@@ -33,11 +33,25 @@
 
       <ion-item *ngFor="let dukkan of kategori.dukkanlar">
         <ion-avatar slot="start">
-          <img src="https://cdn1.iconfinder.com/data/icons/ecommerce-free/96/Shop-512.png">
+          <img src="https://cdn1.iconfinder.com/data/icons/ecommerce-free/96/Shop-512.png" *ngIf="kategori.kategori_adi == 'Market'">
+          <img src="https://pngimage.net/wp-content/uploads/2018/05/bread-icon-png-1.png" *ngIf="kategori.kategori_adi == 'Fırın'">
+          <img src="https://i.pinimg.com/originals/9a/68/c9/9a68c93b7acc0a59649afab6ce503d47.jpg" *ngIf="kategori.kategori_adi == 'Manav'">
+          <img src="https://cdn3.iconfinder.com/data/icons/mixed-bag-1/150/8_shop-512.png" *ngIf="kategori.kategori_adi == 'Bakkal'">
+
         </ion-avatar>
-        <ion-label (click)="goDukkanDetay(dukkan.id);">
-          <h2>{{dukkan.dukkan_adi}}</h2>
-        </ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div> <ion-label (click)="goDukkanDetay(dukkan,kategori.kategori_adi);">
+                <h2>{{dukkan.dukkan_adi}}</h2>
+              </ion-label></div>
+            </ion-col>
+            <ion-col>
+              <div style="float:right;font-size: 13px;padding-top: 3px;color: #e66432;">Min. {{dukkan.minimum_siparis_tutari}} ₺</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+       
       </ion-item>
    
     </ion-list>

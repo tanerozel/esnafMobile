@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title style="font-family: cursive;font-size: 21px;">
+    <ion-title style="font-family: cursive;font-size: 21px;text-align: center;">
       Profil
     </ion-title>
   </ion-toolbar>
@@ -83,8 +83,10 @@
     </ion-card-header>
     <ion-card-content>
       <ion-list *ngFor="let order of orderApproved">  
+        <ion-grid></ion-grid>
         <ion-item (click)="orderDetail(order);">
-          <ion-label>{{order?.dukkan_adi}}</ion-label>
+          <ion-label>{{order?.dukkan_adi}}           
+          </ion-label>
           <ion-badge color="secondary" slot="end">{{order?.siparis_tutari}} TL</ion-badge>
         </ion-item>              
       </ion-list>

@@ -19,8 +19,10 @@ export class Tab1Page {
   })  
   }
 
-  goDukkanDetay (shopId){
-    this.route.navigateByUrl("/tabs/dukkan-detay/" + shopId);
+  goDukkanDetay (shop,categoryName){
+    localStorage.setItem('categoryName', categoryName);
+
+    this.route.navigateByUrl("/tabs/dukkan-detay/" + shop["id"]);
 
   }
   adresSec(){

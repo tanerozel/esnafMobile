@@ -9,14 +9,47 @@
       </ion-toolbar>
   </ion-header>
   <ion-content fullscreen>
+    <ion-item style="padding-top: 30px;">
+
+    <ion-grid>
+
+      <ion-row>
+        <ion-col>
+          <div>
+            <ion-avatar slot="start" style="height: 60px;width: 60px;margin-left: 10px;margin-top: 10px;">
+              <img src="https://cdn1.iconfinder.com/data/icons/ecommerce-free/96/Shop-512.png" *ngIf="categoryName == 'Market'">
+              <img src="https://pngimage.net/wp-content/uploads/2018/05/bread-icon-png-1.png" *ngIf="categoryName == 'Fırın'">
+              <img src="https://i.pinimg.com/originals/9a/68/c9/9a68c93b7acc0a59649afab6ce503d47.jpg" *ngIf="categoryName == 'Manav'">
+              <img src="https://cdn3.iconfinder.com/data/icons/mixed-bag-1/150/8_shop-512.png" *ngIf="categoryName == 'Bakkal'">     
+            </ion-avatar>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <ion-label style="padding-top: 10px;">
+              <p>{{shop?.dukkan_adres}}</p>
+              <p>Tahimini Teslimat : {{shop?.teslimat_suresi}}</p>
+              <p>Min.  {{shop?.minimum_siparis_tutari}}  ₺ </p>
+            </ion-label>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <!-- <ion-icon name="star" style="float: right;padding-right: 17px;padding-top: 13px;font-size: 30px;color: orange;"></ion-icon> -->
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-item>
+
     <ion-list style="margin-top: 10px;" *ngFor="let kategori of shop?.kategori">
       <ion-list-header style="font-size: 20px;">{{kategori?.kategori_adi}}</ion-list-header>
       <ion-item *ngFor="let urun of kategori.urun">
-        <ion-icon name="add-circle" (click)="urunuSepeteEkle(urun)" style="padding-right:10px"></ion-icon>
+        <ion-icon name="add-circle" (click)="urunuSepeteEkle(urun)" style="padding-right:10px;color: orange;"></ion-icon>
         <ion-label>{{urun?.urun_adi}}</ion-label>
-        <ion-badge color="warning" style="color:white" slot="end">{{urun?.fiyat}} TL</ion-badge>
+        <ion-badge color="secondary" slot="end">{{urun?.fiyat}} TL</ion-badge>
       </ion-item>
     </ion-list>
-    
   </ion-content>
 </ion-app>

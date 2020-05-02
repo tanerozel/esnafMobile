@@ -14,17 +14,25 @@ export class DukkanDetayPage {
   shopId: string;
   shop: object;
   user : object;
+  categoryName : string;
 
-  constructor(public toastController: ToastController,route: ActivatedRoute,private router:Router,public http: HttpClient,private alertController: AlertController) { 
-    this.shopId = route.snapshot.params['id']; 
+  constructor(public toastController: ToastController,public route: ActivatedRoute,public router:Router,public http: HttpClient,private alertController: AlertController) { 
+    
+  }
+
+
+  ionViewWillEnter(){
+    this.shopId = this.route.snapshot.params['id']; 
+    this.categoryName = localStorage.getItem('categoryName');    
+
   
     this.http.get( 'https://localhost:44383/api/app/get_shop/' + parseInt(this.shopId) ).toPromise()
       .then(data =>{         
         this.shop = data;
      })   
-
-
+  
   }
+
   async urunuSepeteEkle(orderProduct) {
     let product = {};
 
