@@ -10,7 +10,7 @@ import { ToastController } from '@ionic/angular';
 export class AuthService {
  public userCheck : boolean;
  public user : object;
-
+ public url : string;
   constructor(
     public ngZone: NgZone,
     public http : HttpClient,
@@ -19,6 +19,7 @@ export class AuthService {
   ) {  
     this.userCheck = false;
   }
+
 
   async Login(user){
 
@@ -29,7 +30,7 @@ export class AuthService {
       duration: 2000
     });
 
-    this.http.post<any>('https://localhost:44383/api/app/login', user.form.value).subscribe(data => {
+    this.http.post<any>('https://esnafimapi.azurewebsites.net/api/app/login', user.form.value).subscribe(data => {
       this.user = data; 
 
       if(this.user !=null){
@@ -44,9 +45,10 @@ export class AuthService {
 
   
   }
+  
 
   Register(user){
-    this.http.post<any>('https://localhost:44383/api/app/add_user', user.form.value).subscribe(data => {
+    this.http.post<any>('https://esnafimapi.azurewebsites.net/api/app/add_user', user.form.value).subscribe(data => {
     localStorage.setItem('user', JSON.stringify(data));
     this.route.navigateByUrl("/tabs/tab1");
     })

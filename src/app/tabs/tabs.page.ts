@@ -15,4 +15,7 @@ export class TabsPage {
    
   }
   
+  goLogin(){
+    this.route.navigateByUrl("/login");
+  }
 }
