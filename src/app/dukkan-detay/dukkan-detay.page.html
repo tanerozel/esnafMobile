@@ -26,7 +26,11 @@
             <ion-label style="padding-top: 10px;">
               <p>{{shop?.dukkan_adres}}</p>
               <p>Tahimini Teslimat : {{shop?.teslimat_suresi}}</p>
-              <p>Çalışma Saatleri : {{shop?.calisma_saatleri}}</p>
+              <p>               
+                Çalışma Saatleri : {{shop?.calisma_saatleri}}
+                <ion-icon name="ellipse" style="color:#8ec646;position: relative;top: 2px;" title="Açık" *ngIf="shopWork == 'online'"></ion-icon>          
+                <ion-icon name="ellipse" style="color:#ce3939;position: relative;top: 2px;" title="Kapalı" *ngIf="shopWork == 'offline'"></ion-icon> 
+              </p>
               <p>Telefon : {{shop?.dukkan_telefon}}</p>
               <p style="color: #e66432;">Min.  {{shop?.minimum_siparis_tutari}}  ₺ </p>
             </ion-label>
@@ -34,8 +38,7 @@
         </ion-col>
         <ion-col>
           <div style="float: right;margin-top: 50px;margin-right: 20px;">
-            <ion-icon name="ellipse" style="color:#8ec646" *ngIf="shopWork == 'online'"></ion-icon>          
-            <ion-icon name="ellipse" style="color:#ce3939" *ngIf="shopWork == 'offline'"></ion-icon>          
+                   
           </div>
         </ion-col>
       </ion-row>
