@@ -16,6 +16,7 @@ export class SiparisDetayPage {
   shopName : string;
   totalPrice : number;
   orderCheck : boolean;
+  orderApproved : object;
 
   constructor(public toastController: ToastController,public route: ActivatedRoute,public router:Router,public http: HttpClient,private alertController: AlertController) { 
     
@@ -26,15 +27,15 @@ ionViewWillEnter(){
   this.orderId = this.route.snapshot.params['id']; 
   this.totalPrice = 0;
 
+  this.http.get( 'https://localhost:44383/api/app/get_product_order/' + this.orderId ).toPromise()
+  .then(data =>{         
+    this.orderApproved = data;   
+
+  }) 
+
   this.http.get( 'https://localhost:44383/api/app/get_approved_orders/' + this.orderId ).toPromise()
   .then(data =>{         
     this.orders = data;
-    if(this.orders){
-      this.orderCheck = true;
-    }
-    else{
-      this.orderCheck = false;
-    }
     
     this.shopName = this.orders[0]["dukkan_adi"];
 
