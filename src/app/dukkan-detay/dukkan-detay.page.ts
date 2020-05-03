@@ -52,7 +52,8 @@ export class DukkanDetayPage {
     if(this.user == null){
       const toast = await this.toastController.create({
         message: 'Öncelikle giriş yapmalısınız.',
-        position : 'top',
+        position : 'bottom',
+        color : 'danger',
         duration: 2000
       });
 
@@ -82,8 +83,9 @@ export class DukkanDetayPage {
   
       const toast = await this.toastController.create({
         message: 'Ürün sepetinize eklendi.',
-        position : 'top',
-        duration: 2000
+        position : 'bottom',
+        color: 'success',
+        duration: 1000
       });
   
       this.http.post<any>('https://localhost:44383/api/app/add_order_product', product).subscribe(data => {
@@ -94,7 +96,8 @@ export class DukkanDetayPage {
     else{
       const toast2 = await this.toastController.create({
         message: 'Dükkan şuanda mesai saatleri dışında.',
-        position : 'top',
+        position : 'bottom',
+        color : 'danger',
         duration: 2000
       });
 

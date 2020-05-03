@@ -61,7 +61,5 @@ async orderDetail(order) {
 exit(){
   localStorage.removeItem('user');
   this.router.navigateByUrl("/tabs/tab1"); 
-
 }
-
 }

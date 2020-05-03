@@ -25,6 +25,7 @@ export class AuthService {
     const toast = await this.toastController.create({
       message: 'Kullanıcı adı veya şifre hatalı.',
       position : 'bottom',
+      color : 'danger',
       duration: 2000
     });
 
@@ -33,7 +34,7 @@ export class AuthService {
 
       if(this.user !=null){
         localStorage.setItem('user', JSON.stringify(this.user));
-        this.route.navigateByUrl("/tabs/tab3");
+        this.route.navigateByUrl("/tabs/tab1");
         this.userCheck = true;
       }
       else{
