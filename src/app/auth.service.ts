@@ -25,6 +25,13 @@ export class AuthService {
     })
   }
 
+  Register(user){
+    this.http.post<any>('https://localhost:44383/api/app/add_user', user.form.value).subscribe(data => {
+    localStorage.setItem('user', JSON.stringify(data));
+    this.route.navigateByUrl("/tabs/tab1");
+    })
+  }
+
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null) ? true : false;

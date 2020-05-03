@@ -16,6 +16,7 @@ export class Tab3Page {
   orderApproved : object;
   orders: object;
   orderDetailCheck : boolean;
+  orderApprovedCheck : boolean;
 
   constructor(public toastController: ToastController,public route: ActivatedRoute,public router:Router,public http: HttpClient,public alertController: AlertController) { 
     this.user = JSON.parse(localStorage.getItem('user'));    
@@ -32,6 +33,12 @@ ionViewWillEnter(){
     .then(data =>{         
       this.orderApproved = data;
 
+      if(this.orderApproved[0]){
+      this.orderApprovedCheck = true; 
+      }
+      else{
+        this.orderApprovedCheck = false; 
+      }
    })   
 
 }

@@ -77,9 +77,12 @@
     </ion-item>
   </ion-list>
   <ion-card style="text-align: center;margin: auto;margin-top: 15px;">
-    <img style="text-align: center;margin: auto;height: 101px;padding-top: 15px;margin-top: 11px;" src="..\assets\siparislerim.png" />
-    <ion-card-header>
-      <ion-card-title>Siparişlerim</ion-card-title>
+    <img *ngIf="orderApprovedCheck" style="text-align: center;margin: auto;height: 101px;padding-top: 15px;margin-top: 11px;" src="..\assets\siparislerim.png" />
+    <img *ngIf="!orderApprovedCheck" style="text-align: center;margin: auto;height: 101px;padding-top: 15px;margin-top: 11px;" src="..\assets\siparisyok.png" />
+    <ion-card-header >
+      <ion-card-title *ngIf="orderApprovedCheck">Siparişlerim</ion-card-title>
+      <ion-card-title *ngIf="!orderApprovedCheck" style="font-size: 15px;">Daha önce sipariş vermedin.</ion-card-title>
+      <ion-button expand="small" color="secondary" style="margin-top: 18px;" *ngIf="!orderApprovedCheck" (click)="goHome();">Alışverişe başla</ion-button>
     </ion-card-header>
     <ion-card-content>
       <ion-list *ngFor="let order of orderApproved">  

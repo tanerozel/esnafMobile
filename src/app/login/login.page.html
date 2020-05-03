@@ -31,11 +31,11 @@
   <form #userForm="ngForm">
   <ion-item>
     <ion-label position="stacked">Ad</ion-label>
-    <ion-input [ngModel]="name" name="name"></ion-input>
+    <ion-input [ngModel]="ad" name="ad"></ion-input>
   </ion-item> 
   <ion-item>
     <ion-label position="stacked">Soyad</ion-label>
-    <ion-input [ngModel]="surename" name="surename"></ion-input>
+    <ion-input [ngModel]="soyad" name="soyad"></ion-input>
   </ion-item> 
   <ion-item>
     <ion-label position="stacked">Adres</ion-label>
@@ -51,9 +51,9 @@
   </ion-item> 
   <ion-item>
     <ion-label position="stacked">Şifre</ion-label>
-    <ion-input [ngModel]="password" type="password" name="password"></ion-input>
+    <ion-input [ngModel]="sifre" type="password" name="sifre"></ion-input>
   </ion-item> 
-  <ion-button expand="full" color="secondary" (click)="register(userForm)" style="margin-top:5%">Kayıt Ol</ion-button>
+  <ion-button expand="full" color="secondary" (click)="authService.Register(userForm)" style="margin-top:5%">Kayıt Ol</ion-button>
 </form>
 </ion-content>
 </ion-app>
