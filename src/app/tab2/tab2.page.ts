@@ -53,14 +53,9 @@ export class Tab2Page {
     product["musteriId"] = this.user['id'];
     product["toplamTutar"] = this.totalPrice;   
 
-    const toast = await this.toastController.create({
-      message: 'Siparişiniz başarılı bir şekilde oluşturuldu.',
-      position : 'top',
-      duration: 2000
-    });
     
-    this.http.post<any>('https://localhost:44383/api/app/order_approved', product).subscribe(data => {
-      toast.present();
+    this.http.post<any>('https://localhost:44383/api/app/order_approved', product).subscribe(dataId => {
+      this.router.navigateByUrl("/tabs/siparis-detay/" + dataId);
     })
   }
 
