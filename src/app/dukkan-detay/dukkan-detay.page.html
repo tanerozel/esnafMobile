@@ -5,7 +5,6 @@
           <ion-back-button defaultHref="tabs"></ion-back-button>
         </ion-buttons>
         <ion-title style="font-family: cursive;font-size: 21px;">{{shop?.dukkan_adi}}</ion-title>
-
       </ion-toolbar>
   </ion-header>
   <ion-content fullscreen>
@@ -14,7 +13,7 @@
       <ion-row>
         <ion-col>
           <div>
-            <ion-avatar slot="start" style="height: 60px;width: 60px;margin-left: 10px;margin-top: 10px;margin-bottom: 10px;">
+            <ion-avatar slot="start" style="height: 60px;width: 60px;margin-left: 10px;margin-top: 30px;margin-bottom: 10px;">
               <img src="https://cdn1.iconfinder.com/data/icons/ecommerce-free/96/Shop-512.png" *ngIf="shop?.dukkan_kategori.kategori_adi == 'Market'">
               <img src="https://pngimage.net/wp-content/uploads/2018/05/bread-icon-png-1.png" *ngIf="shop?.dukkan_kategori.kategori_adi == 'Fırın'">
               <img src="https://i.pinimg.com/originals/9a/68/c9/9a68c93b7acc0a59649afab6ce503d47.jpg" *ngIf="shop?.dukkan_kategori.kategori_adi == 'Manav'">
@@ -27,13 +26,16 @@
             <ion-label style="padding-top: 10px;">
               <p>{{shop?.dukkan_adres}}</p>
               <p>Tahimini Teslimat : {{shop?.teslimat_suresi}}</p>
-              <p>Min.  {{shop?.minimum_siparis_tutari}}  ₺ </p>
+              <p>Çalışma Saatleri : {{shop?.calisma_saatleri}}</p>
+              <p>Telefon : {{shop?.dukkan_telefon}}</p>
+              <p style="color: #e66432;">Min.  {{shop?.minimum_siparis_tutari}}  ₺ </p>
             </ion-label>
           </div>
         </ion-col>
         <ion-col>
-          <div>
-            <!-- <ion-icon name="star" style="float: right;padding-right: 17px;padding-top: 13px;font-size: 30px;color: orange;"></ion-icon> -->
+          <div style="float: right;margin-top: 50px;margin-right: 20px;">
+            <ion-icon name="ellipse" style="color:#8ec646" *ngIf="shopWork == 'online'"></ion-icon>          
+            <ion-icon name="ellipse" style="color:#ce3939" *ngIf="shopWork == 'offline'"></ion-icon>          
           </div>
         </ion-col>
       </ion-row>

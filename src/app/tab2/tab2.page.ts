@@ -16,6 +16,7 @@ export class Tab2Page {
   totalPrice : number;
   shopId : number;
   orderCheck : boolean;
+  shop : object;
 
   constructor(public toastController: ToastController,public route: ActivatedRoute,public router:Router,public http: HttpClient,public alertController: AlertController) { 
   }
@@ -31,6 +32,10 @@ export class Tab2Page {
 
         if(this.orders[0]){
           this.orderCheck = true;
+          this.http.get( 'https://localhost:44383/api/app/get_shop/' + parseInt(this.orders[0]["dukkan_id"]) ).toPromise()
+          .then(data =>{         
+            this.shop = data;
+         })   
         }
         else{
           this.orderCheck = false;
@@ -39,24 +44,69 @@ export class Tab2Page {
 
         for (let i in this.orders) {
           this.totalPrice = this.totalPrice + this.orders[i]['urun_fiyat'];
-      }
+      }  
 
      })   
 
   }
 
   async orderApproved(orders){
-    let product = {};
 
-    this.user = JSON.parse(localStorage.getItem('user'));    
-    product["dukkanId"] = orders[0].dukkan_id;
-    product["musteriId"] = this.user['id'];
-    product["toplamTutar"] = this.totalPrice;   
+    if(parseInt(this.shop["minimum_siparis_tutari"]) > this.totalPrice){
+      const toast = await this.toastController.create({
+        message: 'Sepetiniz minimum sipariş tutarından az !',
+        position : 'top',
+        duration: 2000
+      });
+      toast.present();
+      return;
+    }
 
-    
-    this.http.post<any>('https://localhost:44383/api/app/order_approved', product).subscribe(dataId => {
-      this.router.navigateByUrl("/tabs/siparis-detay/" + dataId);
-    })
+    const alert = await this.alertController.create({
+      header: 'Ödeme Tipi ',
+      inputs: [
+        {
+          name: 'Nakit',
+          type: 'radio',
+          label: 'Nakit',
+          value: 'Nakit',
+          checked: true
+        },
+        {
+          name: 'Kart',
+          type: 'radio',
+          label: 'Kart',
+          value: 'Kart'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Vazgeç',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+          }
+        }, {
+          text: 'Onayla',
+          handler: (value) => {
+            let product = {};
+
+            this.user = JSON.parse(localStorage.getItem('user'));    
+            product["dukkanId"] = orders[0].dukkan_id;
+            product["musteriId"] = this.user['id'];
+            product["toplamTutar"] = this.totalPrice;   
+            product["odemeTipi"] = value;   
+            
+            this.http.post<any>('https://localhost:44383/api/app/order_approved', product).subscribe(dataId => {
+              this.router.navigateByUrl("/tabs/siparis-detay/" + dataId);
+            })
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+
   }
 
   goHome(){
