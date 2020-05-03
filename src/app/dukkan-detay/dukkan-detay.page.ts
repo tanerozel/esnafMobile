@@ -43,6 +43,7 @@ export class DukkanDetayPage {
 
     const toast = await this.toastController.create({
       message: 'Ürün sepetinize eklendi.',
+      position : 'top',
       duration: 2000
     });
     

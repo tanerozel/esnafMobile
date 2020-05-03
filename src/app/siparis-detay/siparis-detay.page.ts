@@ -46,4 +46,9 @@ ionViewWillEnter(){
 
 }
 
+goDukkanDetail(){
+  this.router.navigateByUrl("/tabs/dukkan-detay/" + this.orders[0]["dukkan_id"]);
+
+}
+
 }

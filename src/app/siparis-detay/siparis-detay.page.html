@@ -2,15 +2,39 @@
   <ion-header translucent>
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-back-button defaultHref="tabs"></ion-back-button>
+          <ion-back-button defaultHref="tabs/tab3"></ion-back-button>
         </ion-buttons>
-        <ion-title style="font-family: cursive;font-size: 21px">{{shopName}}</ion-title>
-
+        <ion-title style="font-family: cursive;font-size: 21px">Sipariş Detayı</ion-title>
       </ion-toolbar>
   </ion-header>
   <ion-content fullscreen>
-    <ion-list *ngFor="let order of orders">
-      <ion-item>
+    <ion-item style="padding-top: 30px;">
+      <ion-grid (click)="goDukkanDetail()">
+        <ion-row>
+          <ion-col>
+            <div>
+              <ion-avatar slot="start" style="height: 60px;width: 60px;margin-left: 10px;margin-top: 10px;margin-bottom: 10px;">
+                <img src="..\assets\siparisdetay.png">                    
+              </ion-avatar>
+            </div>
+          </ion-col>
+          <ion-col style="text-align: center;">
+            <div>
+              <ion-label style="padding-top: 31px;">
+                <h2>{{shopName}}</h2>
+              </ion-label>
+            </div>
+          </ion-col>
+          <ion-col style="text-align: right;">
+            <div>
+              <ion-icon name="chevron-forward-outline" style="text-align: right;padding-top: 31px;font-size: 20px;"></ion-icon>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid> 
+    </ion-item>
+    <ion-list style="margin-top: 10px;" >
+      <ion-item *ngFor="let order of orders">
         <ion-label>{{order.urun_adi}}</ion-label>
         <ion-badge color="secondary" slot="end">{{order.urun_fiyat}} TL</ion-badge>
       </ion-item>      
@@ -20,6 +44,5 @@
     <ion-button expand="full" color="primary" style="height: 54px;">
       Toplam : {{totalPrice}} TL         
     </ion-button>
-   
   </ion-footer>
 </ion-app>

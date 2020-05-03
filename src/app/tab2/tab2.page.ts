@@ -55,6 +55,7 @@ export class Tab2Page {
 
     const toast = await this.toastController.create({
       message: 'Siparişiniz başarılı bir şekilde oluşturuldu.',
+      position : 'top',
       duration: 2000
     });
     
