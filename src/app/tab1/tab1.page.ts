@@ -19,8 +19,7 @@ export class Tab1Page {
   })  
   }
 
-  goDukkanDetay (shop,categoryName){
-    localStorage.setItem('categoryName', categoryName);
+  goDukkanDetay (shop){
     this.route.navigateByUrl("/tabs/dukkan-detay/" + shop["id"]);
 
   }

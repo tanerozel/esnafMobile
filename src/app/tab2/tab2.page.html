@@ -7,7 +7,7 @@
   <ion-content fullscreen>
     <ion-item style="padding-top: 30px;" *ngIf = "orderCheck">
 
-      <ion-grid >
+      <ion-grid (click)="goDukkanDetail()">
   
         <ion-row>
           <ion-col>
@@ -21,7 +21,7 @@
           <ion-col style="text-align: center;">
             <div>
               <ion-label style="padding-top: 31px;">
-                <h2>Atakan Market</h2>
+                <h2>{{orders[0].dukkan_adi}}</h2>
               </ion-label>
             </div>
           </ion-col>
@@ -38,7 +38,7 @@
     <ion-list style="margin-top: 10px;" >
 
       <ion-item *ngFor="let order of orders">
-        <ion-icon name="remove-circle" (click)="urunuSepeteEkle(urun)" style="padding-right:10px;color: orange;"></ion-icon>
+        <ion-icon name="remove-circle" (click)="orderProductRemove(order.id)" style="padding-right:10px;color: orange;"></ion-icon>
         <ion-label>{{order?.urun_adi}}</ion-label>
         <ion-badge color="secondary" slot="end">{{order?.urun_fiyat}} ₺</ion-badge>
       </ion-item>

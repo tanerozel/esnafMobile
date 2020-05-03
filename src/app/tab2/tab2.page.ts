@@ -67,4 +67,15 @@ export class Tab2Page {
     this.router.navigateByUrl("/tabs/tab1");
   }
 
+  goDukkanDetail(){
+    this.router.navigateByUrl("/tabs/dukkan-detay/" + this.orders[0]["dukkan_id"]);
+
+  }
+
+  orderProductRemove(id){
+    this.http.get( 'https://localhost:44383/api/app/order_update/' + id ).toPromise()
+      .then(data =>{         
+        this.ionViewWillEnter();
+     }) 
+  }
 }
