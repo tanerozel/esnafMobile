@@ -1,11 +1,21 @@
 <ion-app>
   <ion-header translucent>
     <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="/"></ion-back-button>
-      </ion-buttons>
-      <ion-title *ngIf='!registerContent' style="text-align: right;font-size:13px">Hesabın yok mu?<b (click)="registerPage()"> Kaydol</b></ion-title>
-      <ion-title *ngIf='registerContent' style="text-align: right;font-size:13px">Hesabın zaten var mı?<b (click)="loginPage()"> Giriş Yap</b></ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div>        
+            <ion-icon style="font-size: 25px;" (click)="goHome();" name="arrow-back-outline"></ion-icon>      
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>    
+            <ion-title *ngIf='!registerContent' style="text-align: right;font-size:13px;margin-top: 6px;">Hesabın yok mu?<b (click)="registerPage()"> Kaydol</b></ion-title>
+            <ion-title *ngIf='registerContent' style="text-align: right;font-size:13px;margin-top: 6px;">Hesabın zaten var mı?<b (click)="loginPage()"> Giriş Yap</b></ion-title></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
     </ion-toolbar>
   </ion-header>
 

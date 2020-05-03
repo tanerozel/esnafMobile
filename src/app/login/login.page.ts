@@ -26,6 +26,10 @@ export class Login {
 
   ngOnit(){
   }
+
+  goHome(){
+    this.route.navigateByUrl("/tabs/tab1");
+  }
 }
 
 
