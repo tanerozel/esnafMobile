@@ -38,7 +38,7 @@ ionViewWillEnter(){
     return;
   }
 
-  this.http.get( 'https://esnafimapi.azurewebsites.net/api/app/get_orders_approved/' + parseInt(this.user['id']) ).toPromise()
+  this.http.get( 'https://localhost:44383/api/app/get_orders_approved/' + parseInt(this.user['id']) ).toPromise()
     .then(data =>{         
       this.orderApproved = data;
 
