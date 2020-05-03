@@ -15,6 +15,15 @@ export class Login {
   constructor(private route: Router, public authService: AuthService) {
    
   }
+
+  registerPage() {
+    this.registerContent = true;
+  }
+
+  loginPage() {
+    this.registerContent = false;
+  }
+
   ngOnit(){
   }
 }

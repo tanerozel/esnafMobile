@@ -24,7 +24,6 @@ export class DukkanDetayPage {
   ionViewWillEnter(){
     this.shopId = this.route.snapshot.params['id']; 
 
-    
   
     this.http.get( 'https://localhost:44383/api/app/get_shop/' + parseInt(this.shopId) ).toPromise()
       .then(data =>{         
@@ -48,6 +47,21 @@ export class DukkanDetayPage {
   }
 
   async urunuSepeteEkle(orderProduct) {
+    this.user = JSON.parse(localStorage.getItem('user'));   
+    
+    if(this.user == null){
+      const toast = await this.toastController.create({
+        message: 'Öncelikle giriş yapmalısınız.',
+        position : 'top',
+        duration: 2000
+      });
+
+      toast.present();
+
+      return;
+    }
+
+
     var shopWorkTime = this.shop["calisma_saatleri"];
     var shopWorkTimeSplit = shopWorkTime.split("-");
     var startTime = parseInt(shopWorkTimeSplit[0]);

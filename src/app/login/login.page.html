@@ -11,7 +11,7 @@
 
   <ion-content fullscreen hide-header *ngIf='!registerContent' padding>
     
-    <h2 style="font-family: cursive;text-align: center;margin-top: 20%;">Esnafım</h2>
+    <h2 style="font-family: cursive;text-align: center;margin-top: 20%;margin-bottom: 20px;">Esnafım</h2>
     <form #userForm="ngForm">
 
     <ion-item>
@@ -27,7 +27,7 @@
 </ion-content>
 
 <ion-content fullscreen hide-header *ngIf='registerContent'>
-  <h2 style="font-family: cursive;text-align: center;margin-top: 20%;">Esnafım</h2>
+  <h2 style="font-family: cursive;text-align: center;margin-top: 20%;margin-bottom: 20px;">Esnafım</h2>
   <form #userForm="ngForm">
   <ion-item>
     <ion-label position="stacked">Ad</ion-label>
@@ -36,6 +36,14 @@
   <ion-item>
     <ion-label position="stacked">Soyad</ion-label>
     <ion-input [ngModel]="surename" name="surename"></ion-input>
+  </ion-item> 
+  <ion-item>
+    <ion-label position="stacked">Adres</ion-label>
+    <ion-textarea [ngModel]="adres" name="adres"></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Telefon</ion-label>
+    <ion-input [ngModel]="telefon" name="telefon"></ion-input>
   </ion-item> 
   <ion-item>
     <ion-label position="stacked">Email</ion-label>
