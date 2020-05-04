@@ -25,8 +25,10 @@ export class Tab2Page {
   ionViewWillEnter(){
     this.user = JSON.parse(localStorage.getItem('user'));   
     
-    if(this.user == null)
-    return;
+    if(this.user == null){
+      this.orders = null;
+      return;
+    }
     
     this.totalPrice = 0;
 
