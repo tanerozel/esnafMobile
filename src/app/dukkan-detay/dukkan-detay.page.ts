@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { AlertController, IonDatetime } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-dukkan-detay',
@@ -16,9 +18,10 @@ export class DukkanDetayPage {
   user : object;
   shopWork : string;
 
-  constructor(public toastController: ToastController,public route: ActivatedRoute,public router:Router,public http: HttpClient,private alertController: AlertController) { 
-    
+  constructor(public loadingController: LoadingController,public toastController: ToastController,public route: ActivatedRoute,public router:Router,public http: HttpClient,private alertController: AlertController) { 
+  
   }
+
 
 
   ionViewWillEnter(){
@@ -52,7 +55,7 @@ export class DukkanDetayPage {
     if(this.user == null){
       const toast = await this.toastController.create({
         message: 'Öncelikle giriş yapmalısınız.',
-        position : 'bottom',
+        position : 'top',
         color : 'danger',
         duration: 2000
       });
@@ -83,7 +86,7 @@ export class DukkanDetayPage {
   
       const toast = await this.toastController.create({
         message: 'Ürün sepetinize eklendi.',
-        position : 'bottom',
+        position : 'top',
         color: 'success',
         duration: 1000
       });
@@ -96,7 +99,7 @@ export class DukkanDetayPage {
     else{
       const toast2 = await this.toastController.create({
         message: 'Dükkan şuanda mesai saatleri dışında.',
-        position : 'bottom',
+        position : 'top',
         color : 'danger',
         duration: 2000
       });
