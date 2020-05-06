@@ -99,7 +99,7 @@ export class DukkanDetayPage {
       });
   
       this.http.post<any>('https://localhost:44383/api/app/add_order_product', product).subscribe(data => {
-        if(data == 3){
+        if(data == 2){
           toast2.present();
         }    
         else{
