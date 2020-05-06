@@ -30,6 +30,21 @@ ngOnit(){
 
 }
 
+doRefresh(event) {
+  this.http.get( 'http://esnafimapi.azurewebsites.net/api/app/get_orders_approved/' + parseInt(this.user['id']) ).toPromise()
+  .then(data =>{         
+    this.orderApproved = data;
+    event.target.complete();
+
+    if(this.orderApproved[0]){
+    this.orderApprovedCheck = true; 
+    }
+    else{
+      this.orderApprovedCheck = false; 
+    }
+ })   
+}
+
 ionViewWillEnter(){
   this.user = JSON.parse(localStorage.getItem('user'));  
   

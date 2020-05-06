@@ -22,7 +22,28 @@ export class DukkanDetayPage {
   
   }
 
+  doRefresh(event) {
+    this.http.get( 'http://esnafimapi.azurewebsites.net/api/app/get_shop/' + parseInt(this.shopId) ).toPromise()
+      .then(data =>{         
+        this.shop = data;
+        event.target.complete();
 
+        var shopWorkTime = this.shop["calisma_saatleri"];
+        var shopWorkTimeSplit = shopWorkTime.split("-");
+        var startTime = parseInt(shopWorkTimeSplit[0]);
+        var endTime = parseInt(shopWorkTimeSplit[1]);
+
+        var date = new Date();
+        var currentTime = date.getHours();
+
+        if(currentTime >= startTime && currentTime <= endTime){
+          this.shopWork = "online"
+        }
+        else{
+          this.shopWork = "offline"
+        }
+     })  
+  }
 
   ionViewWillEnter(){
     this.shopId = this.route.snapshot.params['id']; 

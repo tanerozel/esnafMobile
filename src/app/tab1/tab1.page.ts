@@ -12,12 +12,23 @@ export class Tab1Page {
   adresFiltresi : boolean;
   tumDukkanlar : object;
 
+  doRefresh(event) {
+    this.http.get ( 'http://esnafimapi.azurewebsites.net/api/app/get_all_shops')
+    .subscribe (data => {  
+    this.tumDukkanlar = data;  
+    event.target.complete();
+    })  
+  }
+  
   constructor(private route:Router,public http: HttpClient) {  
     this.http.get ( 'http://esnafimapi.azurewebsites.net/api/app/get_all_shops')
   .subscribe (data => {  
   this.tumDukkanlar = data;  
+
   })  
   }
+
+  
 
   goDukkanDetay (shop){
     this.route.navigateByUrl("/tabs/dukkan-detay/" + shop["id"]);
