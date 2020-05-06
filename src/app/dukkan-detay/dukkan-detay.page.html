@@ -8,7 +8,7 @@
       </ion-toolbar>
   </ion-header>
   <ion-content fullscreen>
-    <ion-item style="padding-top: 30px;">
+    <ion-item style="margin-top: 5%">
     <ion-grid>
       <ion-row>
         <ion-col style="margin-right: 20px;">
@@ -32,7 +32,7 @@
                 <ion-icon name="ellipse" style="color: #ce3939;position: relative;top: 2px;font-size: 13px;" title="Kapalı" *ngIf="shopWork == 'offline'"></ion-icon> 
               </p>
               <p>Telefon : {{shop?.dukkan_telefon}}</p>
-              <p style="color: #e66432;">Min.  {{shop?.minimum_siparis_tutari}}  ₺ </p>
+              <p style="color: #e66432;">Min.  {{shop?.minimum_siparis_tutari}}  TL </p>
             </ion-label>
           </div>
         </ion-col>
@@ -46,7 +46,7 @@
 
   </ion-item>
 
-    <ion-list style="margin-top: 10px;" *ngFor="let kategori of shop?.kategori">
+    <ion-list style="margin-top: 5%" *ngFor="let kategori of shop?.kategori">
       <ion-list-header style="font-size: 20px;">{{kategori?.kategori_adi}}</ion-list-header>
       <ion-item *ngFor="let urun of kategori.urun" (click)="urunuSepeteEkle(urun)">
         <ion-icon name="add-circle"  style="padding-right:10px;color: orange;"></ion-icon>

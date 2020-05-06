@@ -8,7 +8,7 @@
       </ion-toolbar>
   </ion-header>
   <ion-content fullscreen>
-    <ion-item style="padding-top: 30px;">
+    <ion-item style="margin-top: 5%">
       <ion-grid (click)="goDukkanDetail()">
         <ion-row>
           <ion-col>
@@ -34,7 +34,7 @@
         </ion-row>
       </ion-grid> 
     </ion-item>
-    <ion-list style="margin-top: 10px;" >
+    <ion-list style="margin-top: 5%" >
       <ion-item *ngFor="let order of orders">
         <ion-label>( {{order?.adet_kg}} {{order?.birim}} ) {{order?.urun_adi}}</ion-label>
         <ion-badge color="secondary" slot="end">{{order.urun_fiyat}} TL</ion-badge>

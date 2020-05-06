@@ -5,7 +5,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-content fullscreen>
-    <ion-item style="padding-top: 30px;" *ngIf = "orderCheck">
+    <ion-item style="margin-top: 5%" *ngIf = "orderCheck">
       <ion-grid (click)="goDukkanDetail()">
         <ion-row>
           <ion-col>
@@ -19,7 +19,7 @@
             <div>
               <ion-label style="padding-top: 31px;">
                 <h2>{{orders[0].dukkan_adi}}</h2>
-                <p style="color: #e66432;">Min.  {{shop?.minimum_siparis_tutari}}  ₺ </p>
+                <p style="color: #e66432;">Min.  {{shop?.minimum_siparis_tutari}}  TL </p>
               </ion-label>
             </div>
           </ion-col>
@@ -32,11 +32,11 @@
       </ion-grid> 
     </ion-item>
 
-    <ion-list style="margin-top: 10px;" >
+    <ion-list style="margin-top: 5%" >
       <ion-item *ngFor="let order of orders" (click)="orderProductRemove(order.id)">
         <ion-icon name="remove-circle" style="padding-right:10px;color: orange;"></ion-icon>
         <ion-label>( {{order?.adet_kg}} {{order?.birim}} ) {{order?.urun_adi}}</ion-label>
-        <ion-badge color="secondary" slot="end">{{order?.urun_fiyat}} ₺</ion-badge>
+        <ion-badge color="secondary" slot="end">{{order?.urun_fiyat}} TL</ion-badge>
       </ion-item> 
     </ion-list>
     <div style="text-align: center;"  *ngIf = "!orderCheck">

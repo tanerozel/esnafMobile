@@ -28,7 +28,7 @@ export class DukkanDetayPage {
     this.shopId = this.route.snapshot.params['id']; 
 
   
-    this.http.get( 'http://esnafimapi.azurewebsites.net/api/app/get_shop/' + parseInt(this.shopId) ).toPromise()
+    this.http.get( 'https://localhost:44383/api/app/get_shop/' + parseInt(this.shopId) ).toPromise()
       .then(data =>{         
         this.shop = data;
 
@@ -98,7 +98,7 @@ export class DukkanDetayPage {
         duration: 2000
       });
   
-      this.http.post<any>('http://esnafimapi.azurewebsites.net/api/app/add_order_product', product).subscribe(data => {
+      this.http.post<any>('https://localhost:44383/api/app/add_order_product', product).subscribe(data => {
         if(data == 2){
           toast2.present();
         }    

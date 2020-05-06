@@ -32,13 +32,13 @@ export class Tab2Page {
       return;
     }
     
-    this.http.get( 'http://esnafimapi.azurewebsites.net/api/app/get_order/' + parseInt(this.user['id']) ).toPromise()
+    this.http.get( 'https://localhost:44383/api/app/get_order/' + parseInt(this.user['id']) ).toPromise()
       .then(data =>{         
         this.orders = data;
 
         if(this.orders[0]){
           this.orderCheck = true;
-          this.http.get( 'http://esnafimapi.azurewebsites.net/api/app/get_shop/' + parseInt(this.orders[0]["dukkan_id"]) ).toPromise()
+          this.http.get( 'https://localhost:44383/api/app/get_shop/' + parseInt(this.orders[0]["dukkan_id"]) ).toPromise()
           .then(data =>{         
             this.shop = data;
          })   
@@ -104,7 +104,7 @@ export class Tab2Page {
             product["toplamTutar"] = this.totalPrice;   
             product["odemeTipi"] = value;   
             
-            this.http.post<any>('http://esnafimapi.azurewebsites.net/api/app/order_approved', product).subscribe(dataId => {
+            this.http.post<any>('https://localhost:44383/api/app/order_approved', product).subscribe(dataId => {
               this.router.navigateByUrl("/tabs/siparis-detay/" + dataId);
             })
           }
@@ -126,7 +126,7 @@ export class Tab2Page {
   }
 
   orderProductRemove(id){
-    this.http.get( 'http://esnafimapi.azurewebsites.net/api/app/order_update/' + id ).toPromise()
+    this.http.get( 'https://localhost:44383/api/app/order_update/' + id ).toPromise()
       .then(data =>{         
         this.ionViewWillEnter();
      }) 
