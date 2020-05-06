@@ -33,8 +33,8 @@
     </ion-item>
 
     <ion-list style="margin-top: 10px;" >
-      <ion-item *ngFor="let order of orders">
-        <ion-icon name="remove-circle" (click)="orderProductRemove(order.id)" style="padding-right:10px;color: orange;"></ion-icon>
+      <ion-item *ngFor="let order of orders" (click)="orderProductRemove(order.id)">
+        <ion-icon name="remove-circle" style="padding-right:10px;color: orange;"></ion-icon>
         <ion-label>( {{order?.adet_kg}} {{order?.birim}} ) {{order?.urun_adi}}</ion-label>
         <ion-badge color="secondary" slot="end">{{order?.urun_fiyat}} ₺</ion-badge>
       </ion-item> 
