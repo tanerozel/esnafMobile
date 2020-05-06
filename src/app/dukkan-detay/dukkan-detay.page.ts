@@ -90,10 +90,21 @@ export class DukkanDetayPage {
         color: 'success',
         duration: 1000
       });
+
+      const toast2 = await this.toastController.create({
+        message: 'Ürün sepete eklenemedi.Sepetenizde başka dükkanın ürünü var.',
+        position : 'top',
+        color: 'danger',
+        duration: 2000
+      });
   
       this.http.post<any>('https://localhost:44383/api/app/add_order_product', product).subscribe(data => {
-        toast.present();
-  
+        if(data == 3){
+          toast2.present();
+        }    
+        else{
+          toast.present();
+        }   
       })
     }
     else{
