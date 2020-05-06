@@ -27,13 +27,13 @@ ionViewWillEnter(){
   this.orderId = this.route.snapshot.params['id']; 
   this.totalPrice = 0;
 
-  this.http.get( 'https://localhost:44383/api/app/get_product_order/' + this.orderId ).toPromise()
+  this.http.get( 'http://esnafimapi.azurewebsites.net/api/app/get_product_order/' + this.orderId ).toPromise()
   .then(data =>{         
     this.orderApproved = data;   
 
   }) 
 
-  this.http.get( 'https://localhost:44383/api/app/get_approved_orders/' + this.orderId ).toPromise()
+  this.http.get( 'http://esnafimapi.azurewebsites.net/api/app/get_approved_orders/' + this.orderId ).toPromise()
   .then(data =>{         
     this.orders = data;
     

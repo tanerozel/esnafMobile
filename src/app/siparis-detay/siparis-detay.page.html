@@ -13,27 +13,31 @@
         <ion-row>
           <ion-col>
             <div>
-              <ion-avatar slot="start" style="margin-top: 4%;margin-left: 20%;">
-                <img src="..\assets\siparisdetay.png">                
+              <ion-avatar slot="start" style="align-items: center;display: flex;justify-content: center;">
+                <img src="..\assets\siparisdetay.png">                       
               </ion-avatar>
             </div>
           </ion-col>
-          <ion-col style="text-align: center;">
+          <ion-col style="text-align: center;align-items: center;display: flex;justify-content: center;">
             <div>
-              <ion-label style="margin-top: 10%;">
+              <ion-label>
                 <h2>{{shopName}}</h2>
                 <p>Ödeme Tipi : <label style="color:#f06336">{{orderApproved?.odeme_tipi}}</label></p>
               </ion-label>
             </div>
           </ion-col>
-          <ion-col style="text-align: right;">
+          <ion-col style="text-align: right;    align-items: center;display: flex;justify-content: center;position: relative;left: 10%;">
             <div>
-              <ion-icon name="chevron-forward-outline" style="font-size: 25px;margin-top: 13%;"></ion-icon>
+              <ion-icon name="chevron-forward-outline" style="font-size: 25px;"></ion-icon>
             </div>
           </ion-col>
         </ion-row>
       </ion-grid> 
     </ion-item>
+
+
+
+
     <ion-list style="margin-top: 5%" >
       <ion-item *ngFor="let order of orders">
         <ion-label>( {{order?.adet_kg}} {{order?.birim}} ) {{order?.urun_adi}}</ion-label>
