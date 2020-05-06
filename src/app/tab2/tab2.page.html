@@ -10,14 +10,14 @@
         <ion-row>
           <ion-col>
             <div>
-              <ion-avatar slot="start" style="height: 60px;width: 60px;margin-left: 10px;margin-top: 10px;margin-bottom: 10px;">
+              <ion-avatar slot="start" style="margin-top: 4%;margin-left: 20%;">
                 <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/shopping_basket_full.png">                
               </ion-avatar>
             </div>
           </ion-col>
           <ion-col style="text-align: center;">
             <div>
-              <ion-label style="padding-top: 31px;">
+              <ion-label style="margin-top: 12%;">
                 <h2>{{orders[0].dukkan_adi}}</h2>
                 <p style="color: #e66432;">Min.  {{shop?.minimum_siparis_tutari}}  TL </p>
               </ion-label>
@@ -25,7 +25,7 @@
           </ion-col>
           <ion-col style="text-align: right;">
             <div>
-              <ion-icon name="chevron-forward-outline" style="text-align: right;padding-top: 31px;font-size: 20px;"></ion-icon>
+              <ion-icon name="chevron-forward-outline" style="font-size: 25px;margin-top: 15%;"></ion-icon>
             </div>
           </ion-col>
         </ion-row>
@@ -40,7 +40,7 @@
       </ion-item> 
     </ion-list>
     <div style="text-align: center;"  *ngIf = "!orderCheck">
-    <img src="..\assets\basket.png" style="height: 200px;margin-top: 120px;">  
+    <img src="..\assets\basket.png" style="height: 200px;margin-top: 20%;">  
     <p>Sepetiniz de ürün bulunmamaktadır.</p>
     <ion-button expand="small" color="secondary" (click)="goHome();">Alışverişe devam et</ion-button>
     </div>
