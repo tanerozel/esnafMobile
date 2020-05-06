@@ -36,7 +36,7 @@
     </ion-item>
     <ion-list style="margin-top: 10px;" >
       <ion-item *ngFor="let order of orders">
-        <ion-label>{{order.urun_adi}}</ion-label>
+        <ion-label>( {{order?.adet_kg}} {{order?.birim}} ) {{order?.urun_adi}}</ion-label>
         <ion-badge color="secondary" slot="end">{{order.urun_fiyat}} TL</ion-badge>
       </ion-item>      
     </ion-list>  
