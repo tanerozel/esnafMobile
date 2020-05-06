@@ -24,14 +24,14 @@ export class Tab2Page {
 
   ionViewWillEnter(){
     this.user = JSON.parse(localStorage.getItem('user'));   
-    
+    this.totalPrice = 0;
+
     if(this.user == null){
       this.orders = null;
+      this.orderCheck =false;
       return;
     }
     
-    this.totalPrice = 0;
-
     this.http.get( 'https://localhost:44383/api/app/get_order/' + parseInt(this.user['id']) ).toPromise()
       .then(data =>{         
         this.orders = data;
