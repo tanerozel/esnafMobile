@@ -62,4 +62,9 @@ exit(){
   localStorage.removeItem('user');
   this.router.navigateByUrl("/tabs/tab1"); 
 }
+
+goHome(){
+  this.router.navigateByUrl("/tabs/tab1"); 
+}
+
 }
