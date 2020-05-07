@@ -86,7 +86,7 @@
     <ion-card-header >
       <ion-card-title *ngIf="orderApprovedCheck">Siparişlerim</ion-card-title>
       <ion-card-title *ngIf="!orderApprovedCheck" style="font-size: 15px;">Daha önce sipariş vermedin.</ion-card-title>
-      <ion-button expand="small" color="tertiary" style="margin-top: 18px;" *ngIf="!orderApprovedCheck" (click)="goHome();">Alışverişe başla</ion-button>
+      <ion-button expand="small" s color="tertiary" style="margin-top: 18px;text-transform: none" *ngIf="!orderApprovedCheck" (click)="goHome();">Alışverişe başla</ion-button>
     </ion-card-header>
     <ion-card-content>
       <ion-list *ngFor="let order of orderApproved">  

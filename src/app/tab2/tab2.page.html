@@ -45,11 +45,11 @@
     <div style="text-align: center;"  *ngIf = "!orderCheck">
     <img src="..\assets\basket.png" style="height: 200px;margin-top: 20%;">  
     <p>Sepetiniz de ürün bulunmamaktadır.</p>
-    <ion-button expand="small" color="tertiary" (click)="goHome();">Alışverişe devam et</ion-button>
+    <ion-button style="text-transform: none" expand="small" color="tertiary" (click)="goHome(); ">Alışverişe devam et</ion-button>
     </div>
   </ion-content>
   <ion-footer *ngIf = "orderCheck">
-    <ion-button expand="full" color="tertiary" style="height: 54px;" (click)="orderApproved(orders)">         
+    <ion-button expand="full"  color="tertiary" style="height: 54px;text-transform: none" (click)="orderApproved(orders)">         
       <ion-grid>
         <ion-row>
           <ion-col style="border-right: 2px solid white;">
@@ -57,7 +57,7 @@
           </ion-col>
           <ion-col>
             <div>
-             Onayla
+             Sepeti Onayla
             </div>
           </ion-col>
         </ion-row>

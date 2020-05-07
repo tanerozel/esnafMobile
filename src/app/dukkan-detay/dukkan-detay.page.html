@@ -43,7 +43,6 @@
     </ion-grid>
 
   </ion-item>
-
     <ion-list *ngFor="let kategori of shop?.kategori">
       <ion-list-header style="font-size: 17px;">{{kategori?.kategori_adi}}</ion-list-header>
       <ion-item *ngFor="let urun of kategori.urun" (click)="urunuSepeteEkle(urun)">
