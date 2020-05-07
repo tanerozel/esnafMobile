@@ -4,7 +4,7 @@
         <ion-buttons slot="start">
           <ion-back-button defaultHref="tabs"></ion-back-button>
         </ion-buttons>
-        <ion-title style="font-family: cursive;font-size: 21px;">{{shop?.dukkan_adi}}</ion-title>
+        <ion-title style="font-family: cursive;font-size: 17px;">{{shop?.dukkan_adi}}</ion-title>
       </ion-toolbar>
   </ion-header>
   <ion-content fullscreen>
@@ -12,7 +12,7 @@
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
     <ion-item style="margin-top: 5%">
-    <ion-grid style="    align-items: center;display: flex;justify-content: center;">
+    <ion-grid style="align-items: center;display: flex;justify-content: center;">
       <ion-row >
         <ion-col style="position: relative;right: 20%;">
           <div>
@@ -44,12 +44,12 @@
 
   </ion-item>
 
-    <ion-list style="margin-top: 5%" *ngFor="let kategori of shop?.kategori">
-      <ion-list-header style="font-size: 20px;">{{kategori?.kategori_adi}}</ion-list-header>
+    <ion-list *ngFor="let kategori of shop?.kategori">
+      <ion-list-header style="font-size: 17px;">{{kategori?.kategori_adi}}</ion-list-header>
       <ion-item *ngFor="let urun of kategori.urun" (click)="urunuSepeteEkle(urun)">
         <ion-icon name="add-circle"  style="padding-right:10px;color: orange;"></ion-icon>
-        <ion-label>{{urun?.kg}} {{urun?.birim}} {{urun?.urun_adi}}</ion-label>
-        <ion-badge color="secondary" slot="end">{{urun?.fiyat}} TL</ion-badge>
+        <ion-label style="font-size: 14px;">{{urun?.kg}} {{urun?.birim}} {{urun?.urun_adi}}</ion-label>
+        <ion-badge color="tertiary" slot="end" style="font-size: 14px;">{{urun?.fiyat}} TL</ion-badge>
       </ion-item>
     </ion-list>
   </ion-content>

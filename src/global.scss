@@ -44,4 +44,16 @@ ion-content ion-toolbar {
   
     --ion-background-color:white;
   }
-  
+
+  * {
+    font-family: sans-serif;
+  }
+
+  ion-toolbar{
+    --ion-background-color:#ef5e25;
+    color: white;
+  }
+
+  * {
+    font-family: 'sans-serif' !important;  
+}

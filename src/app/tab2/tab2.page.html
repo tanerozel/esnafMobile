@@ -1,7 +1,10 @@
 <ion-app>
   <ion-header translucent>
     <ion-toolbar>
-      <ion-title style="font-family: cursive;font-size: 21px;">Sepetim</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="tabs/tab1"></ion-back-button>
+      </ion-buttons>
+      <ion-title style="font-family: cursive;font-size: 17px">Sepetim</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content fullscreen>
@@ -35,18 +38,18 @@
     <ion-list style="margin-top: 5%" >
       <ion-item *ngFor="let order of orders" (click)="orderProductRemove(order.id)">
         <ion-icon name="remove-circle" style="padding-right:10px;color: orange;"></ion-icon>
-        <ion-label>( {{order?.adet_kg}} {{order?.birim}} ) {{order?.urun_adi}}</ion-label>
-        <ion-badge color="secondary" slot="end">{{order?.urun_fiyat}} TL</ion-badge>
+        <ion-label style="font-size: 14px;">( {{order?.adet_kg}} {{order?.birim}} ) {{order?.urun_adi}}</ion-label>
+        <ion-badge color="tertiary" slot="end">{{order?.urun_fiyat}} TL</ion-badge>
       </ion-item> 
     </ion-list>
     <div style="text-align: center;"  *ngIf = "!orderCheck">
     <img src="..\assets\basket.png" style="height: 200px;margin-top: 20%;">  
     <p>Sepetiniz de ürün bulunmamaktadır.</p>
-    <ion-button expand="small" color="secondary" (click)="goHome();">Alışverişe devam et</ion-button>
+    <ion-button expand="small" color="tertiary" (click)="goHome();">Alışverişe devam et</ion-button>
     </div>
   </ion-content>
   <ion-footer *ngIf = "orderCheck">
-    <ion-button expand="full" color="primary" style="height: 54px;" (click)="orderApproved(orders)">         
+    <ion-button expand="full" color="tertiary" style="height: 54px;" (click)="orderApproved(orders)">         
       <ion-grid>
         <ion-row>
           <ion-col style="border-right: 2px solid white;">

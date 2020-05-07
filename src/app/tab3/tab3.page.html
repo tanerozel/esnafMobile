@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title style="font-family: cursive;font-size: 21px;text-align: center;">
+    <ion-title style="font-family: cursive;font-size: 17px;text-align: center;">
       Profil
     </ion-title>
   </ion-toolbar>
@@ -10,7 +10,7 @@
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <ion-list style="margin-top: 5%">
+  <ion-list style="margin-top: 4%">
     <ion-item>
       <ion-avatar slot="start">
         <img src="https://cdn2.iconfinder.com/data/icons/website-icons/512/User_Avatar-512.png">
@@ -86,15 +86,15 @@
     <ion-card-header >
       <ion-card-title *ngIf="orderApprovedCheck">Siparişlerim</ion-card-title>
       <ion-card-title *ngIf="!orderApprovedCheck" style="font-size: 15px;">Daha önce sipariş vermedin.</ion-card-title>
-      <ion-button expand="small" color="secondary" style="margin-top: 18px;" *ngIf="!orderApprovedCheck" (click)="goHome();">Alışverişe başla</ion-button>
+      <ion-button expand="small" color="tertiary" style="margin-top: 18px;" *ngIf="!orderApprovedCheck" (click)="goHome();">Alışverişe başla</ion-button>
     </ion-card-header>
     <ion-card-content>
       <ion-list *ngFor="let order of orderApproved">  
         <ion-grid></ion-grid>
         <ion-item (click)="orderDetail(order);">
-          <ion-label>{{order?.dukkan_adi}}           
+          <ion-label style="font-size:14px">{{order?.dukkan_adi}}           
           </ion-label>
-          <ion-badge color="secondary" slot="end" style="height: 25px;font-size: 15px;padding-left: 15px;">{{order?.siparis_tutari}} TL
+          <ion-badge color="tertiary" slot="end" style="height: 25px;font-size: 15px;padding-left: 15px;">{{order?.siparis_tutari}} TL
             <ion-icon name="chevron-forward" style="top: 1.5px;position: relative;"></ion-icon>
           </ion-badge>
         </ion-item>              

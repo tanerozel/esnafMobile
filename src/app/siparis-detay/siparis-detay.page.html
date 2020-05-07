@@ -4,7 +4,7 @@
         <ion-buttons slot="start">
           <ion-back-button defaultHref="tabs/tab3"></ion-back-button>
         </ion-buttons>
-        <ion-title style="font-family: cursive;font-size: 21px">Siparis Detayı</ion-title>
+        <ion-title style="font-family: cursive;font-size: 17px">Siparis Detayı</ion-title>
       </ion-toolbar>
   </ion-header>
   <ion-content fullscreen>
@@ -14,7 +14,7 @@
           <ion-col>
             <div>
               <ion-avatar slot="start" style="align-items: center;display: flex;justify-content: center;">
-                <img src="..\assets\siparisdetay.png">                       
+                <img src="..\assets\siparislerim.png">                       
               </ion-avatar>
             </div>
           </ion-col>
@@ -35,18 +35,15 @@
       </ion-grid> 
     </ion-item>
 
-
-
-
     <ion-list style="margin-top: 5%" >
       <ion-item *ngFor="let order of orders">
-        <ion-label>( {{order?.adet_kg}} {{order?.birim}} ) {{order?.urun_adi}}</ion-label>
-        <ion-badge color="secondary" slot="end">{{order.urun_fiyat}} TL</ion-badge>
+        <ion-label style="font-size:14px">( {{order?.adet_kg}} {{order?.birim}} ) {{order?.urun_adi}}</ion-label>
+        <ion-badge color="tertiary" slot="end">{{order.urun_fiyat}} TL</ion-badge>
       </ion-item>      
     </ion-list>  
   </ion-content>
   <ion-footer>
-    <ion-button expand="full" color="primary" style="height: 54px;">
+    <ion-button expand="full" color="tertiary" style="height: 54px;">
       Toplam : {{totalPrice}} TL         
     </ion-button>
   </ion-footer>
