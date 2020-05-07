@@ -35,7 +35,7 @@
                 <ion-icon name="ellipse" style="color: #ce3939;position: relative;top: 2px;font-size: 13px;" title="Kapalı" *ngIf="shopWork == 'offline'"></ion-icon> 
               </p>
               <p>Telefon : {{shop?.dukkan_telefon}}</p>
-              <p style="color: #e66432;">Min.  {{shop?.minimum_siparis_tutari}}  TL </p>
+              <p style="color: #ef5e25;">Min.  {{shop?.minimum_siparis_tutari}}  TL </p>
             </ion-label>
           </div>
         </ion-col>      
@@ -48,7 +48,7 @@
       <ion-item *ngFor="let urun of kategori.urun" (click)="urunuSepeteEkle(urun)">
         <ion-icon name="add-circle" style="padding-right:10px;color:orange;"></ion-icon>
         <ion-label style="font-size: 14px;">{{urun?.kg}} {{urun?.birim}} {{urun?.urun_adi}}</ion-label>
-        <div style="float:right;font-size: 12px;color: #e66432;">{{urun?.fiyat}} TL</div>
+        <div style="float:right;font-size: 12px;color: #ef5e25;">{{urun?.fiyat}} TL</div>
       </ion-item>
     </ion-list>
   </ion-content>

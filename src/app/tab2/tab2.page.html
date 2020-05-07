@@ -22,7 +22,7 @@
             <div>
               <ion-label>
                 <h2>{{orders[0].dukkan_adi}}</h2>
-                <p style="color: #e66432;">Min.  {{shop?.minimum_siparis_tutari}}  TL </p>
+                <p style="color: #ef5e25;">Min.  {{shop?.minimum_siparis_tutari}}  TL </p>
               </ion-label>
             </div>
           </ion-col>
@@ -39,7 +39,7 @@
       <ion-item *ngFor="let order of orders" (click)="orderProductRemove(order.id)">
         <ion-icon name="remove-circle" style="padding-right:10px;color: orange;"></ion-icon>
         <ion-label style="font-size: 14px"><label style="color: #4fa7a0;">( {{order?.adet_kg}} {{order?.birim}} )</label> {{order?.urun_adi}}</ion-label>
-        <div style="float:right;font-size: 12px;color: #e66432;">{{order?.urun_fiyat}} TL</div>
+        <div style="float:right;font-size: 12px;color: #ef5e25;">{{order?.urun_fiyat}} TL</div>
       </ion-item> 
     </ion-list>
     <div style="text-align: center;"  *ngIf = "!orderCheck">
