@@ -76,7 +76,7 @@ export class DukkanDetayPage {
     if(this.user == null){
       const toast = await this.toastController.create({
         message: 'Öncelikle giriş yapmalısınız.',
-        position : 'top',
+        position : 'bottom',
         color : 'danger',
         duration: 2000
       });
@@ -107,14 +107,14 @@ export class DukkanDetayPage {
   
       const toast = await this.toastController.create({
         message: 'Ürün sepetinize eklendi.',
-        position : 'top',
+        position : 'bottom',
         color: 'success',
         duration: 1000
       });
 
       const toast2 = await this.toastController.create({
         message: 'Ürün sepete eklenemedi.Sepetenizde başka dükkanın ürünü var.',
-        position : 'top',
+        position : 'bottom',
         color: 'danger',
         duration: 2000
       });
@@ -131,7 +131,7 @@ export class DukkanDetayPage {
     else{
       const toast2 = await this.toastController.create({
         message: 'Dükkan şuanda mesai saatleri dışında.',
-        position : 'top',
+        position : 'bottom',
         color : 'danger',
         duration: 2000
       });

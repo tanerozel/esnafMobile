@@ -1,8 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title style="font-family: cursive;font-size: 17px;text-align: center;">
-      Profil
-    </ion-title>
+    <ion-title style="font-family: sans-serif;font-size: 17px;color:white">Profilim</ion-title>
+    <ion-buttons slot="primary">
+      <ion-icon name="exit-outline" (click)="exit();" style="font-family: sans-serif;font-size: 22px;text-align: center;padding-right: 20px;color:white"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -16,7 +17,6 @@
         <img src="https://cdn2.iconfinder.com/data/icons/website-icons/512/User_Avatar-512.png">
       </ion-avatar>
       <ion-label>{{user?.ad}} {{user?.soyad}}</ion-label>
-      <ion-icon name="exit-outline" (click)="exit();" style="color: orangered;"></ion-icon>
     </ion-item>
     <ion-item>    
       <ion-label>

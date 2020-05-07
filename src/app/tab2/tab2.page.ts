@@ -61,7 +61,7 @@ export class Tab2Page {
     if(parseInt(this.shop["minimum_siparis_tutari"]) > this.totalPrice){
       const toast = await this.toastController.create({
         message: 'Sepetiniz minimum sipariş tutarından az.',
-        position : 'top',
+        position : 'bottom',
         color : 'danger',
         duration: 2000
       });
