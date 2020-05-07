@@ -94,10 +94,8 @@
         <ion-item (click)="orderDetail(order);">
           <ion-label style="font-size:14px">{{order?.dukkan_adi}}           
           </ion-label>
-          <ion-badge color="tertiary" slot="end" style="padding-left: 15px;">
-            {{order?.siparis_tutari}} TL
-            <ion-icon name="chevron-forward" style="top: 2.5px;position: relative;"></ion-icon>
-          </ion-badge>
+          <div style="float:right;font-size: 15px;color: #e66432;"> {{order?.siparis_tutari}} TL</div>
+          <ion-icon name="chevron-forward" style="padding-left:5%;font-size: 15px;"></ion-icon>
         </ion-item>              
       </ion-list>
     </ion-card-content>
