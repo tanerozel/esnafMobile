@@ -55,8 +55,16 @@ export class Tab2Page {
      })   
 
   }
+  
 
   async orderApproved(orders){
+
+    const toast2 = await this.toastController.create({
+      message: 'Siparişiniz başarılı bir şekilde oluşturuldu.',
+      position : 'bottom',
+      color : 'success',
+      duration: 2000
+    });
 
     if(parseInt(this.shop["minimum_siparis_tutari"]) > this.totalPrice){
       const toast = await this.toastController.create({
@@ -96,6 +104,8 @@ export class Tab2Page {
         }, {
           text: 'Onayla',
           handler: (value) => {
+           
+
             let product = {};
 
             this.user = JSON.parse(localStorage.getItem('user'));    
@@ -105,8 +115,11 @@ export class Tab2Page {
             product["odemeTipi"] = value;   
             
             this.http.post<any>('http://esnafimapi.azurewebsites.net/api/app/order_approved', product).subscribe(dataId => {
-              this.router.navigateByUrl("/tabs/siparis-detay/" + dataId);
+              toast2.present();
+
+             this.router.navigateByUrl("/tabs/siparis-detay/" + dataId);
             })
+
           }
         }
       ]
