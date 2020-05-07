@@ -109,7 +109,7 @@ export class DukkanDetayPage {
         message: 'Ürün sepetinize eklendi.',
         position : 'bottom',
         color: 'success',
-        duration: 1000
+        duration: 500
       });
 
       const toast2 = await this.toastController.create({

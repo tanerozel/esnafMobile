@@ -49,7 +49,7 @@
       <ion-item *ngFor="let urun of kategori.urun" (click)="urunuSepeteEkle(urun)">
         <ion-icon name="add-circle"  style="padding-right:10px;color: orange;"></ion-icon>
         <ion-label style="font-size: 14px;">{{urun?.kg}} {{urun?.birim}} {{urun?.urun_adi}}</ion-label>
-        <ion-badge color="tertiary" slot="end" style="font-size: 14px;">{{urun?.fiyat}} TL</ion-badge>
+        <ion-badge color="tertiary" slot="end">{{urun?.fiyat}} TL</ion-badge>
       </ion-item>
     </ion-list>
   </ion-content>
