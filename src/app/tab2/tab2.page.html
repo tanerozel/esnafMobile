@@ -48,20 +48,18 @@
     <ion-button style="text-transform: none" expand="small" color="tertiary" (click)="goHome(); ">Alışverişe devam et</ion-button>
     </div>
   </ion-content>
-  <ion-footer *ngIf = "orderCheck">
-    <ion-button expand="full"  color="tertiary" style="height: 54px;text-transform: none" (click)="orderApproved(orders)">         
-      <ion-grid>
-        <ion-row>
-          <ion-col style="border-right: 2px solid white;">
-            <div>Toplam : {{totalPrice}} TL</div>
-          </ion-col>
-          <ion-col>
-            <div>
-             Sepeti Onayla
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-button>
-  </ion-footer>
+  <ion-button expand="full" *ngIf = "orderCheck" color="tertiary" style="height: 54px;text-transform: none" (click)="orderApproved(orders)">         
+    <ion-grid>
+      <ion-row>
+        <ion-col style="border-right: 2px solid white;">
+          <div>Toplam : {{totalPrice}} TL</div>
+        </ion-col>
+        <ion-col>
+          <div>
+           Sepeti Onayla
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-button>
 </ion-app>
