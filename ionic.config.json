@@ -1,7 +1,8 @@
 {
-  "name": "myApp",
+  "name": "deneme",
   "integrations": {
     "cordova": {}
   },
-  "type": "angular"
+  "type": "angular",
+  "id": "03c35427"
 }
